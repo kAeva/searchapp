@@ -74,19 +74,19 @@
           <version>2.8.2</version>
         </plugin>
 
-        <plugin>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-maven-plugin</artifactId>
-          <version>9.3.11.v20160721</version>
-          <configuration>
-            <webApp>
-              <contextPath>/searchapp</contextPath>
-            </webApp>
-            <httpConnector>
-              <port>8888</port>
-            </httpConnector>
-          </configuration>
-        </plugin>
+<!--        <plugin>-->
+<!--          <groupId>org.eclipse.jetty</groupId>-->
+<!--          <artifactId>jetty-maven-plugin</artifactId>-->
+<!--          <version>9.3.11.v20160721</version>-->
+<!--          <configuration>-->
+<!--            <webApp>-->
+<!--              <contextPath>/searchapp</contextPath>-->
+<!--            </webApp>-->
+<!--            <httpConnector>-->
+<!--              <port>8888</port>-->
+<!--            </httpConnector>-->
+<!--          </configuration>-->
+<!--        </plugin>-->
       </plugins>
     </pluginManagement>
   </build>

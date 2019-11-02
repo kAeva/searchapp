@@ -81,11 +81,12 @@ public class SearchServlet extends HttpServlet {
             request.setAttribute("piList", pid_list);
             System.out.println("setatrribute executed");
 
-            RequestDispatcher view = request.getRequestDispatcher("/search.jsp");
-            view.forward(request, response);
+
             System.out.println("forvarded");
             conn.close();
             System.out.println("Disconnected!");
+            RequestDispatcher view = request.getRequestDispatcher("/search.jsp");
+            view.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
