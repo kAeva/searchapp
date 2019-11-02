@@ -5,6 +5,7 @@
 
 <html>
 <head>
+    <title>RESULTS</title>
     <meta charset="UTF-8">
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -30,24 +31,21 @@
 
 <%
     int count = 0;
-    String color = "#F9EBB3";
-    if (request.getAttribute("piList") != null) {
-        ArrayList al = (ArrayList) request.getAttribute("piList");
+//    String color = "#F9EBB3";
+    if (request.getAttribute("prodsList") != null) {
+        ArrayList al = (ArrayList) request.getAttribute("prodsList");
         System.out.println(al);
         Iterator itr = al.iterator();
         while (itr.hasNext()) {
 
-            if ((count % 2) == 0) {
-                color = "#eeffee";
-            }
+
             count++;
             ArrayList pList = (ArrayList) itr.next();
-%>
+    %>
 <div class="container">
     <div class="row">
         <div class="col">
-<%--            <tools:img path="/img/placeholder.jpg"/>--%>
-            <img src="img/placeholder.png">
+            <img alt="product picture" src="img/placeholder.png" width="300px" height="300px">
 
         </div>
         <div class="col">
@@ -68,14 +66,15 @@
             }
             if (count == 0) {
         %>
-        <tr>
-            <td colspan=4 align="center"
-                style="background-color:#eeffee"><b>No Record Found..</b></td>
-        </tr>
+        <div class="container-fluid mx-auto mt-5" style="width: 800px; height: 150px;">
+            <h6>No Record Found..</h6>
+
+        </div>
+
         <%            }
         %>
 
-        <img src="img/store-layout.png">
+        <img alt="store-layout" src="img/store-layout.png">
     </div>
 
 </div>

@@ -10,10 +10,10 @@ public class UserDao implements Dao<User> {
         users.add(new User("Susan", "susan@domain.com"));
     }
 
-    @Override
-    public Optional<User> get(long id) {
-        return Optional.ofNullable(users.get((int) id));
-    }
+//    @Override
+//    public Optional<User> get(long id) {
+//        return Optional.ofNullable(users.get((int) id));
+//    }
 
     @Override
     public List<User> getAll() {

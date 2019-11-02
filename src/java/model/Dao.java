@@ -3,7 +3,7 @@ package model;
 import java.util.*;
 
 public interface Dao<T> {
-    Optional<T> get(long id);
+//    Optional<T> get(long id);
 
     List<T> getAll();
 

@@ -24,14 +24,13 @@ public class SearchServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PrintWriter writer = response.getWriter();
-        String pid = request.getParameter("searchkey");
-        writer.println("You are looking for: " +  pid + " And here are the results. Please choose the one that matches your needs best. ");
+        String searchkey = request.getParameter("searchkey");
+        writer.println("You are looking for: " +  searchkey + " And here are the results. Please choose the one that matches your needs best. ");
 
         PrintWriter out = response.getWriter();
-        System.out.println("servler started with input parameter " + pid);
+        System.out.println("servler started with input parameter " + searchkey);
         Connection conn = null;
-        String url = "jdbc:mysql://localhost:3306/";
-        String dbName = "prodapp";
+        String url = "jdbc:mysql://localhost:3306/prodapp";
         String driver = "com.mysql.cj.jdbc.Driver";
         String userName = "root";
         String password = "6666";
@@ -42,16 +41,15 @@ public class SearchServlet extends HttpServlet {
             System.out.println("try block started");
 
             Class.forName(driver);
-            conn = DriverManager.getConnection(url + dbName, userName, password);
+            conn = DriverManager.getConnection(url, userName, password);
             System.out.println("Connected!");
-            //String pid = request.getParameter("searchkey");
             System.out.println("before creating an array");
 
             ArrayList al = null;
-            ArrayList pid_list = new ArrayList();
+            ArrayList prodsList = new ArrayList();
             System.out.println("array created");
 
-            String query = "select * from products where item='" + pid + "' ";
+            String query = "select * from products where item='" + searchkey + "' ";
             System.out.println("search querry created");
 
 
@@ -75,18 +73,19 @@ public class SearchServlet extends HttpServlet {
 
 
                 System.out.println("al :: " + al);
-                pid_list.add(al);
+                prodsList.add(al);
             }
 
-            request.setAttribute("piList", pid_list);
+            request.setAttribute("prodsList", prodsList);
             System.out.println("setatrribute executed");
 
 
             System.out.println("forvarded");
-            conn.close();
-            System.out.println("Disconnected!");
+
             RequestDispatcher view = request.getRequestDispatcher("/search.jsp");
             view.forward(request, response);
+            conn.close();
+            System.out.println("Disconnected!");
         } catch (Exception e) {
             e.printStackTrace();
         }
