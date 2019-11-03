@@ -3,16 +3,24 @@ package model;
 import java.util.UUID;
 
 public class Product {
-
-    private String productName;
-    private double price;
-    private int quant;
     private UUID uuid;
+    private int id;
+    private String productName;
+    private int quant;
+    private double price;
+    private String category;
+    private String description;
+    private int sectionNum;
 
-    public Product(String productName, int quant, double price) {
+
+    public Product(int id, String productName, int quant, double price, String category, String description, int sectionNum) {
+        this.id = id;
         this.productName = productName;
         this.quant = quant;
         this.price = price;
+        this.category = category;
+        this.description = description;
+        this.sectionNum = sectionNum;
         uuid = UUID.randomUUID();
     }
 
@@ -49,5 +57,37 @@ public class Product {
 
     public void setUuid() {
         uuid = UUID.randomUUID();
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public int getSectionNum() {
+        return sectionNum;
+    }
+
+    public void setSectionNum(int sectionNum) {
+        this.sectionNum = sectionNum;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

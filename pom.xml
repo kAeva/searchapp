@@ -37,7 +37,21 @@
       <scope>runtime</scope>
       <version>8.0.18</version>
     </dependency>
-
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-entitymanager</artifactId>
+      <version>5.4.8.Final</version>
+    </dependency>
+    <dependency>
+      <groupId>com.oracle.ojdbc</groupId>
+      <artifactId>ojdbc10</artifactId>
+      <version>19.3.0.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.hibernate</groupId>
+      <artifactId>hibernate-core</artifactId>
+      <version>5.4.0.Final</version>
+    </dependency>
   </dependencies>
 
   <build>
