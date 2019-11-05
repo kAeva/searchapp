@@ -1,12 +1,13 @@
 package model;
 
 import controller.ConnectionFactory;
-import java.sql.* ;
-import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
 
 public class ProductDao implements Dao<Product> {
 
