@@ -1,5 +1,8 @@
 package controller;
 
+import model.Product;
+import model.SearchList;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -29,6 +30,10 @@ public class SearchServlet extends HttpServlet {
 
 
         Statement st;
+//
+//        SearchList model = SearchList.getInstance();
+//        List<Product> prodList = model.list();
+//        request.setAttribute("prodList", prodList);
 
         try {
             Connection conn = ConnectionFactory.getConnection();
@@ -58,6 +63,7 @@ public class SearchServlet extends HttpServlet {
             }
 
             request.setAttribute("prodsList", prodsList);
+            request.setAttribute("searchkey", searchkey);
 
             RequestDispatcher view = request.getRequestDispatcher("/search.jsp");
             view.forward(request, response);
