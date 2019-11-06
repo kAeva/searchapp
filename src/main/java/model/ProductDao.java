@@ -9,8 +9,12 @@ import java.sql.Statement;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.Objects;
+
 
 public class ProductDao implements Dao<Product> {
+    private List<Product> products = new ArrayList<>();
+
 
     public ProductDao(){
     }
@@ -23,7 +27,7 @@ public class ProductDao implements Dao<Product> {
         product.setPrice( rs.getDouble("price") );
         product.setCategory( rs.getString("category") );
         product.setDescription( rs.getString("description") );
-        product.setSectionNum( rs.getInt("sec_n") );
+        product.setSectionNum( rs.getString("sec_n") );
         return product;
     }
 
@@ -58,18 +62,17 @@ public class ProductDao implements Dao<Product> {
     public void save(Product product) {
         Connection connection = ConnectionFactory.getConnection();
         try {
-            PreparedStatement ps = connection.prepareStatement("INSERT INTO products VALUES (NULL, ?, ?, ?, ?, ?, ?, ?)");
-            ps.setInt(1, product.getId());
-            ps.setString(2, product.getProductName());
-            ps.setInt(3, product.getQuant());
-            ps.setDouble(4, product.getPrice());
-            ps.setString(5, product.getCategory());
-            ps.setString(6, product.getDescription());
-            ps.setInt(7, product.getSectionNum());
+            PreparedStatement ps = connection.prepareStatement("INSERT INTO products VALUES (NULL, ?, ?, ?, ?, ?, ?)");
+            ps.setString(1, product.getProductName());
+            ps.setInt(2, product.getQuant());
+            ps.setDouble(3, product.getPrice());
+            ps.setString(4, product.getCategory());
+            ps.setString(5, product.getDescription());
+            ps.setString(6, product.getSectionNum());
 
             int i = ps.executeUpdate();
 
-            if(i == 1) {
+            if (i == 1) {
                 System.out.println("product saved");
             }
         } catch (SQLException ex) {
@@ -77,30 +80,40 @@ public class ProductDao implements Dao<Product> {
             System.out.println("smth's wrong with the product saving");
 
         }
-        System.out.println("smth's wrong with the product saving");
+        System.out.println("out from the saving method");
     }
 
     @Override
     public void update(Product product, String[] params) {
         Connection connection = ConnectionFactory.getConnection();
 
-        try {
-            PreparedStatement ps = connection.prepareStatement("UPDATE products SET id=?, item=?, quantity=?, price=?, category=?, description=?, sec_n=? WHERE id=?");
 
-            ps.setInt(1, product.getId());
-            ps.setString(2, product.getProductName());
-            ps.setInt(3, product.getQuant());
-            ps.setDouble(4, product.getPrice());
-            ps.setString(5, product.getCategory());
-            ps.setString(6, product.getDescription());
-            ps.setInt(7, product.getSectionNum());
+        product.setProductName(Objects.requireNonNull(
+                    params[1], "Product name cannot be null"));
+        product.setDescription(Objects.requireNonNull(
+                    params[5], "No descr"));
 
-            int i = ps.executeUpdate();
-            if(i == 1) {
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        products.add(product);
+
+
+//        try {
+//            PreparedStatement ps = connection.prepareStatement("UPDATE products SET id=?, item=?, quantity=?, price=?, category=?, description=?, sec_n=? WHERE id=?");
+//
+//            ps.setInt( 1, product.getId());
+//            ps.setString(2, product.getProductName());
+//            ps.setInt(3, product.getQuant());
+//            ps.setDouble(4, product.getPrice());
+//            ps.setString(5, product.getCategory());
+//            ps.setString(6, product.getDescription());
+//            ps.setString(7, product.getSectionNum());
+//            ps.setInt(8, product.getId());
+//
+//            int i = ps.executeUpdate();
+//            if(i == 1) {
+//            }
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
     }
 
     @Override
@@ -116,12 +129,12 @@ public class ProductDao implements Dao<Product> {
         }
     }
 
-    public Product getProduct(int id) {
+    public Product getProduct(String searchkey) {
 
-        Connection connection = ConnectionFactory.getConnection();
+    Connection connection = ConnectionFactory.getConnection();
         try {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM products WHERE id=" + id);
+            ResultSet rs = stmt.executeQuery("SELECT * FROM products WHERE item LIKE '%" + searchkey + "%'");
             if(rs.next())
             {
                 return extractProductFromResultSet(rs);
@@ -131,5 +144,6 @@ public class ProductDao implements Dao<Product> {
         }
         return null;
     }
+
 }
 

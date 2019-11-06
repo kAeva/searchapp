@@ -15,8 +15,6 @@ import java.util.ArrayList;
 @WebServlet(name = "searchservlet", urlPatterns = {"/search"})
 public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //response.setContentType("text/html");
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
