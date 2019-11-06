@@ -61,10 +61,10 @@ public class SearchServlet extends HttpServlet {
 
             request.setAttribute("prodsList", prodsList);
             request.setAttribute("searchkey", searchkey);
-
-            RequestDispatcher view = request.getRequestDispatcher("/search.jsp");
-            view.forward(request, response);
             conn.close();
+
+            RequestDispatcher dispatcher = request.getRequestDispatcher("/search.jsp");
+            dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }

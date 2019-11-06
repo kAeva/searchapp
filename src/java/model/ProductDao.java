@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class ProductDao implements Dao<Product> {
 
@@ -25,6 +26,13 @@ public class ProductDao implements Dao<Product> {
         product.setSectionNum( rs.getInt("sec_n") );
         return product;
     }
+
+    @Override
+    public Optional<Product> get(long id) {
+        return Optional.empty();
+    }
+
+
 
     @Override
     public List getAll() {
