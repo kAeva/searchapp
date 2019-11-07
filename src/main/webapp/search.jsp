@@ -51,7 +51,7 @@
 
     <div class="col-12 col-md-8"></div>
     <div class="col-6 col-md-4">
-        <button type="button" class="btn btn-light my-2">Home page</button>
+        <a class="btn btn-light my-2" href="./index.jsp">Home page</a>
     </div>
 </nav>
 <div class="container-fluid mx-auto mt-5" style="width: 800px; height: 150px;">
