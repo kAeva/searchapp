@@ -14,11 +14,10 @@ import java.util.Optional;
 
 public class ProductDao implements Dao<Product> {
     private List<Product> products = new ArrayList<>();
-
     public ProductDao(){
     }
 
-    private Product extractProductFromResultSet(ResultSet rs) throws SQLException {
+    private static Product extractProductFromResultSet(ResultSet rs) throws SQLException {
         Product product = new Product();
         product.setId( rs.getInt("id") );
         product.setProductName( rs.getString("item") );
@@ -30,6 +29,7 @@ public class ProductDao implements Dao<Product> {
         return product;
     }
 
+
     @Override
     public Optional<Product> get(long id) {
         return Optional.empty();
@@ -37,7 +37,7 @@ public class ProductDao implements Dao<Product> {
 
     @Override
     public List getAll() {
-        try (Connection connection = ConnectionFactory.getConnection();) {
+        try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM products");
             List products = new ArrayList();
@@ -55,7 +55,7 @@ public class ProductDao implements Dao<Product> {
 
     @Override
     public void save(Product product) {
-        try (Connection connection = ConnectionFactory.getConnection();) {
+        try (Connection connection = ConnectionFactory.getConnection()) {
             PreparedStatement ps = connection.prepareStatement("INSERT INTO products VALUES (NULL, ?, ?, ?, ?, ?, ?)");
             ps.setString(1, product.getProductName());
             ps.setInt(2, product.getQuant());
@@ -72,9 +72,7 @@ public class ProductDao implements Dao<Product> {
         } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println("smth's wrong with the product saving");
-
         }
-        System.out.println("out from the saving method");
     }
 
     @Override
@@ -86,7 +84,7 @@ public class ProductDao implements Dao<Product> {
 //to do: add other parameters
 
         products.add(product);
-        try (Connection connection = ConnectionFactory.getConnection();) {
+        try (Connection connection = ConnectionFactory.getConnection()) {
             PreparedStatement ps = connection.prepareStatement("UPDATE products SET item=?, quantity=?, price=?, category=?, description=?, sec_n=? WHERE id=?");
 
             ps.setString(1, product.getProductName());
@@ -110,7 +108,7 @@ public class ProductDao implements Dao<Product> {
 
     @Override
     public void delete(Product product) throws SQLException {
-        try (Connection connection = ConnectionFactory.getConnection();) {
+        try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
             int i = stmt.executeUpdate("DELETE FROM products WHERE id=" + product.getId());
             if (i == 1) {
@@ -121,18 +119,36 @@ public class ProductDao implements Dao<Product> {
         }
     }
 
-    public Product getProduct(String searchkey) throws SQLException {
-        try (Connection connection = ConnectionFactory.getConnection();) {
+    public static Product getProduct(int id) {
+        try(Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * FROM products WHERE item LIKE '%" + searchkey + "%'");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM products WHERE id=" + id);
             if(rs.next())
             {
                 return extractProductFromResultSet(rs);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }  return null;
+        } return null;
     }
+
+    public static List<Product> searchProduct(String searchkey){
+
+        List<Product> prodsList = new ArrayList<>();
+
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM products WHERE item LIKE '%" + searchkey + "%'");
+
+            while (rs.next()) {
+                Product currentItem =  extractProductFromResultSet(rs);
+                prodsList.add(currentItem);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }  return prodsList;
+    }
+
 
 }
 
