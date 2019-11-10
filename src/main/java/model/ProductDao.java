@@ -1,6 +1,7 @@
 package model;
 
 import controller.ConnectionFactory;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Connection;
@@ -13,19 +14,21 @@ import java.util.Optional;
 
 
 public class ProductDao implements Dao<Product> {
+
     private List<Product> products = new ArrayList<>();
-    public ProductDao(){
+
+    public ProductDao() {
     }
 
     private static Product extractProductFromResultSet(ResultSet rs) throws SQLException {
         Product product = new Product();
-        product.setId( rs.getInt("id") );
-        product.setProductName( rs.getString("item") );
-        product.setQuant( rs.getInt("quantity") );
-        product.setPrice( rs.getDouble("price") );
-        product.setCategory( rs.getString("category") );
-        product.setDescription( rs.getString("description") );
-        product.setSectionNum( rs.getString("sec_n") );
+        product.setId(rs.getInt("id"));
+        product.setProductName(rs.getString("item"));
+        product.setQuant(rs.getInt("quantity"));
+        product.setPrice(rs.getDouble("price"));
+        product.setCategory(rs.getString("category"));
+        product.setDescription(rs.getString("description"));
+        product.setSectionNum(rs.getString("sec_n"));
         return product;
     }
 
@@ -41,8 +44,7 @@ public class ProductDao implements Dao<Product> {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM products");
             List products = new ArrayList();
-            while(rs.next())
-            {
+            while (rs.next()) {
                 Product product = extractProductFromResultSet(rs);
                 products.add(product);
             }
@@ -78,9 +80,9 @@ public class ProductDao implements Dao<Product> {
     @Override
     public void update(Product product, String[] params) throws SQLException {
         product.setProductName(Objects.requireNonNull(
-                    params[1], "Product name cannot be null"));
+                params[1], "Product name cannot be null"));
         product.setDescription(Objects.requireNonNull(
-                    params[5], "No descr"));
+                params[5], "No descr"));
 //to do: add other parameters
 
         products.add(product);
@@ -120,19 +122,19 @@ public class ProductDao implements Dao<Product> {
     }
 
     public static Product getProduct(int id) {
-        try(Connection connection = ConnectionFactory.getConnection()) {
+        try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM products WHERE id=" + id);
-            if(rs.next())
-            {
+            if (rs.next()) {
                 return extractProductFromResultSet(rs);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-        } return null;
+        }
+        return null;
     }
 
-    public static List<Product> searchProduct(String searchkey){
+    public static List<Product> searchProduct(String searchkey) {
 
         List<Product> prodsList = new ArrayList<>();
 
@@ -141,12 +143,13 @@ public class ProductDao implements Dao<Product> {
             ResultSet rs = stmt.executeQuery("SELECT * FROM products WHERE item LIKE '%" + searchkey + "%'");
 
             while (rs.next()) {
-                Product currentItem =  extractProductFromResultSet(rs);
+                Product currentItem = extractProductFromResultSet(rs);
                 prodsList.add(currentItem);
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
-        }  return prodsList;
+        }
+        return prodsList;
     }
 
 

@@ -10,8 +10,7 @@ public class ConnectionFactory {
     public static final String USER = "root";
     public static final String PASS = "6666";
 
-    public static Connection getConnection()
-    {
+    public static Connection getConnection() {
         try {
             Class.forName(driver);
             return DriverManager.getConnection(URL, USER, PASS);

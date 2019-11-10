@@ -24,18 +24,21 @@
 
 </div>
 
- <div class="container-fluid mx-auto mt-5" style="width: 800px;">
- <form action="search" method="get">
-     <input class="form-control mr-sm-5  col-md-12"  name="searchkey" type="searchkey" placeholder="I need ..." aria-label="Search">
-     </br>
-     </br>
-     </br>
-     <button class="btn btn-outline-dark mx-auto" style="width: 200px; margin: 0 auto; display: block;" type="submit">Search</button>
- </form>
- </div>
- <div>
+<div class="container-fluid mx-auto mt-5" style="width: 800px;">
+    <form action="search" method="get">
+        <input class="form-control mr-sm-5  col-md-12" name="searchkey" type="searchkey" placeholder="I need ..."
+               aria-label="Search">
+        </br>
+        </br>
+        </br>
+        <button class="btn btn-outline-dark mx-auto" style="width: 200px; margin: 0 auto; display: block;"
+                type="submit">Search
+        </button>
+    </form>
+</div>
+<div>
 
- </div>
+</div>
 
 
     <div class="row">
