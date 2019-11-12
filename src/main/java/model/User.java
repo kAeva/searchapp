@@ -7,7 +7,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 
-
 @Entity
 @Table(name = "users")
 public class User {
@@ -18,13 +17,14 @@ public class User {
     private String email;
     private String password;
 
-    public User(int id, String name, String email, String password){
+    public User(int id, String name, String email, String password) {
         this.password = password;
         this.email = email;
         this.name = name;
         this.id = id;
     }
-    public User(String name, String email){
+
+    public User(String name, String email) {
         this.name = name;
         this.email = email;
     }

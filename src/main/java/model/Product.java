@@ -10,10 +10,10 @@ public class Product {
     private double price;
     private String category;
     private String description;
-    private int sectionNum;
+    private String sectionNum;
 
 
-    public Product(int id, String productName, int quant, double price, String category, String description, int sectionNum) {
+    public Product(int id, String productName, int quant, double price, String category, String description, String sectionNum) {
         this.id = id;
         this.productName = productName;
         this.quant = quant;
@@ -24,7 +24,11 @@ public class Product {
         uuid = UUID.randomUUID();
     }
 
-    public Product(){
+    public Product(int id, String productName, int quant, int price, String no, String description, String s){
+    }
+
+    public Product() {
+
     }
 
     public UUID getUuid() {
@@ -75,11 +79,11 @@ public class Product {
         this.description = description;
     }
 
-    public int getSectionNum() {
+    public String getSectionNum() {
         return sectionNum;
     }
 
-    public void setSectionNum(int sectionNum) {
+    public void setSectionNum(String sectionNum) {
         this.sectionNum = sectionNum;
     }
 
@@ -89,5 +93,9 @@ public class Product {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String toString() {
+        return getProductName() + " - " + getDescription();
     }
 }
