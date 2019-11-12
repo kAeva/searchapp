@@ -44,6 +44,5 @@ public class Registration extends HttpServlet {
         //RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/add.jsp");
         //requestDispatcher.forward(request, response);
 
-
     }
 }
