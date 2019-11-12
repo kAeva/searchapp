@@ -31,6 +31,7 @@
         <a class="btn btn-light my-2" href="./index.jsp">Home page</a>
     </div>
 </nav>
+
 <div class="container-fluid mx-auto mt-5" style="width: 800px; height: 100px;">
     <h1 class="text-center">Search results:</h1>
 
@@ -45,11 +46,14 @@
             Product product = (Product) itr.next();
 %>
 <div class="container">
+
+    <div class="container mb-5" style="height:100%">
     <div class="container-fluid mx-auto mt-5" style="width: 800px; height: 70px;">
-        <h2 class="text-center"><%=product.getProductName()%>
-        </h2>
+        <h2 class="text-center"><%=product.getProductName()%></h2>
     </div>
+
     <div class="row">
+
         <div class="col">
             <img alt="product picture" src="img/placeholder.png" width="300px" height="300px"
                  style="margin: 0 auto; display: block;">
@@ -72,19 +76,27 @@
                 <button class="btn btn-dark my-2" name="productId" value="<%=product.getId()%>">Add to list</button>
             </form>
         </div>
+
+    </div>
+    </div>
+</div>
         <%
                 }
             }
             if (count == 0) {
         %>
-        <div class="container-fluid mx-auto mt-5" style="width: 800px; height: 150px;">
+
+
+
+<div class="container-fluid mx-auto mt-5" style="width: 800px; height: 150px;">
             <h6>No Record Found..</h6>
 
         </div>
 
         <% }
         %>
-    </div>
-</div>
+
+
+<jsp:include page="Footer.jsp"/>
 </body>
 </html>

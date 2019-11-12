@@ -13,18 +13,18 @@
 </head>
 <body>
 <nav class="navbar navbar-dark bg-dark">
-
     <div class="col-12 col-md-8"></div>
     <div class="col-6 col-md-4">
         <button type="button" class="btn btn-light my-2">Admin panel</button>
     </div>
 </nav>
+<div>
 <div class="container-fluid mx-auto mt-5" style="width: 800px; height: 150px;">
     <h1 class="text-center">What are you looking for?</h1>
 
 </div>
 
-<div class="container-fluid mx-auto mt-5" style="width: 800px;">
+<div class="container-fluid mx-auto mt-5" style="width: 800px; height: 450px;">
     <form action="search" method="get">
         <input class="form-control mr-sm-5  col-md-12" name="searchkey" type="searchkey" placeholder="I need ..."
                aria-label="Search">
@@ -36,13 +36,12 @@
         </button>
     </form>
 </div>
-<div>
-
 </div>
 
 
     <div class="row">
 
     </div>
+<jsp:include page="Footer.jsp"/>
 </body>
 </html>

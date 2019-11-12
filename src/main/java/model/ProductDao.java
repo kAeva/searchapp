@@ -39,7 +39,7 @@ public class ProductDao implements Dao<Product> {
     }
 
     @Override
-    public List getAll() {
+    public List<Product> getAll() {
         try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM products");

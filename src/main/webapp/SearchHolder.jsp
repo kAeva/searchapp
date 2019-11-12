@@ -56,6 +56,7 @@
         <a class="btn btn-light my-2" href="./index.jsp">Home page</a>
     </div>
 </nav>
+
 <div class="container-fluid mx-auto mt-5" style="width: 800px; height: 70px;">
     <h1 class="text-center">Your search basket</h1>
 </div>
@@ -71,10 +72,13 @@
 
 <div class="container">
 
+    <div class="container mb-5">
+
     <div class="container-fluid mx-auto mt-5" style="width: 800px; height: 70px;">
         <h2 class="text-center"><%=product.getProductName()%>
         </h2>
     </div>
+
     <div class="row">
         <div class="col">
             <img alt="product picture" src="img/placeholder.png" width="300px" height="300px"
@@ -96,19 +100,26 @@
 
             <button id="displaySwitcher" class="displaySwitcher btn btn-dark my-2">Show on map</button>
         </div>
+    </div>
+    </div>
+</div>
+
         <%
                 }
             }
             if (count == 0) {
         %>
-        <div class="container-fluid mx-auto mt-5" style="width: 800px; height: 150px;">
+<div class="container-fluid mx-auto mt-5" style="width: 800px; height: 150px;">
             <h6>No Record Found..</h6>
 
-        </div>
+</div>
 
         <% }
         %>
-    </div>
-    <jsp:include page="map1.1.jsp"/>
+
+<jsp:include page="map1.1.jsp"/>
+
+<jsp:include page="Footer.jsp"/>
+
 </body>
 </html>
