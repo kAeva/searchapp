@@ -32,8 +32,8 @@
             position: absolute;
             width: 20px;
             height: 20px;
-            margin-left: 60px;
-            margin-top: -530px;
+            margin-left: 606px;
+            margin-top: 370px;
         }
     </style>
     <script>

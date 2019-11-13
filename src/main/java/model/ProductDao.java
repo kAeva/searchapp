@@ -15,8 +15,6 @@ import java.util.Optional;
 
 public class ProductDao implements Dao<Product> {
 
-    private List<Product> products = new ArrayList<>();
-
     public ProductDao() {
     }
 
@@ -66,11 +64,7 @@ public class ProductDao implements Dao<Product> {
             ps.setString(5, product.getDescription());
             ps.setString(6, product.getSectionNum());
 
-            int i = ps.executeUpdate();
-
-            if (i == 1) {
-                System.out.println("product saved");
-            }
+            ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
             System.out.println("smth's wrong with the product saving");
@@ -80,12 +74,18 @@ public class ProductDao implements Dao<Product> {
     @Override
     public void update(Product product, String[] params) throws SQLException {
         product.setProductName(Objects.requireNonNull(
-                params[1], "Product name cannot be null"));
+                params[0], "Product name cannot be null"));
+        product.setQuant(Integer.parseInt(Objects.requireNonNull(
+                params[1], "Quantity can't be null")));
+        product.setPrice(Float.parseFloat(Objects.requireNonNull(
+                params[2], "Price can't be null")));
+        product.setCategory(Objects.requireNonNull(
+                params[3], "Category can't be null"));
         product.setDescription(Objects.requireNonNull(
-                params[5], "No descr"));
-//to do: add other parameters
+                params[4], "No description"));
+        product.setSectionNum(Objects.requireNonNull(
+                params[5], "Section number can't be null"));
 
-        products.add(product);
         try (Connection connection = ConnectionFactory.getConnection()) {
             PreparedStatement ps = connection.prepareStatement("UPDATE products SET item=?, quantity=?, price=?, category=?, description=?, sec_n=? WHERE id=?");
 
@@ -97,11 +97,7 @@ public class ProductDao implements Dao<Product> {
             ps.setString(6, product.getSectionNum());
             ps.setInt(7, product.getId());
 
-            int i = ps.executeUpdate();
-            if (i == 1) {
-                System.out.println("product saved");
-            }
-
+            ps.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -112,10 +108,8 @@ public class ProductDao implements Dao<Product> {
     public void delete(Product product) throws SQLException {
         try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
-            int i = stmt.executeUpdate("DELETE FROM products WHERE id=" + product.getId());
-            if (i == 1) {
-                System.out.println("product saved");
-            }
+            stmt.executeUpdate("DELETE FROM products WHERE id=" + product.getId());
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -135,9 +129,7 @@ public class ProductDao implements Dao<Product> {
     }
 
     public static List<Product> searchProduct(String searchkey) {
-
         List<Product> prodsList = new ArrayList<>();
-
         try (Connection connection = ConnectionFactory.getConnection()) {
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery("SELECT * FROM products WHERE item LIKE '%" + searchkey + "%'");
@@ -151,7 +143,5 @@ public class ProductDao implements Dao<Product> {
         }
         return prodsList;
     }
-
-
 }
 
