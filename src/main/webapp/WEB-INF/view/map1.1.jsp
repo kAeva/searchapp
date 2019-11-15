@@ -1,4 +1,3 @@
-
 <%@ page contentType="text/html;charset=UTF-8"%>
 
 <style>
@@ -9,6 +8,7 @@
     area:hover {
         border: 2px solid indianred;
     }
+
 </style>
 
 <div class="container">

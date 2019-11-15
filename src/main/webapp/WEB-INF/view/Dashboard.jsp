@@ -24,9 +24,9 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="col-12 col-md-8"></div>
     <div class="col-6 col-md-4">
-        <a class="btn btn-light my-2" href="index.jsp">Home page</a>
+        <a class="btn btn-light my-2" href="./">Home page</a>
         <a class="btn btn-light my-2" href="#">Manage Users</a>
-        <a class="btn btn-light my-2" href="index.jsp">Log out</a>
+        <a class="btn btn-light my-2" href="./">Log out</a>
     </div>
 </nav>
 

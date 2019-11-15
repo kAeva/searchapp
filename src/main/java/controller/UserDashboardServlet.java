@@ -1,8 +1,6 @@
 package controller;
 
-import DAO.ProductDao;
 import DAO.UserDao;
-import model.Product;
 import model.User;
 
 import javax.servlet.RequestDispatcher;

@@ -93,4 +93,17 @@ public class UserDao implements Dao<User> {
         }
     }
 
+    public static User getUser(int id) {
+        try (Connection connection = ConnectionFactory.getConnection()) {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM users WHERE id=" + id);
+            if (rs.next()) {
+                return extractProductFromResultSet(rs);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
 }

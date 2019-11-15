@@ -24,7 +24,7 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="col-12 col-md-8"></div>
     <div class="col-6 col-md-4">
-        <a class="btn btn-light my-2" href="index.jsp">Home page</a>
+        <a class="btn btn-light my-2" href="./">Home page</a>
         <a class="btn btn-light my-2" href="./dashboard">Manage Products</a>
         <a class="btn btn-light my-2" href="">Log out</a>
     </div>
@@ -44,12 +44,8 @@
             <th scope="col">#</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-<%--            <th scope="col">Price</th>--%>
-<%--            <th scope="col">Category</th>--%>
-<%--            <th scope="col">Description</th>--%>
-<%--            <th scope="col">Sec.No</th>--%>
             <th></th>
-            <th><a class="btn btn-warning btn-sm" href="WEB-INF/view/adduserpage.html">Add</a></th>
+            <th><a class="btn btn-warning btn-sm" href="WEB-INF/view/adduserpage.jsp">Add</a></th>
 
         </tr>
         </thead>
@@ -69,12 +65,8 @@
             <th scope="row"><%=user.getId()%></th>
             <td><%=user.getName()%></td>
             <td><%=user.getEmail()%></td>
-<%--            <td><%=user.getPrice()%></td>--%>
-<%--            <td><%=user.getCategory()%></td>--%>
-<%--            <td><%=user.getDescription()%></td>--%>
-<%--            <td><%=user.getSectionNum()%></td>--%>
             <td><form method="get" action="./deleteuser">
-                <button class="btn btn-danger btn-sm" value="<%=user.getId()%>" name="prodId">Remove</button>
+                <button class="btn btn-danger btn-sm" value="<%=user.getId()%>" name="userId">Remove</button>
             </form>
             </td>
             <td><form method="post" action="./edituser"><button class="btn btn-success btn-sm" value="<%=user.getId()%>" name="prodId">Edit</button></form></td>

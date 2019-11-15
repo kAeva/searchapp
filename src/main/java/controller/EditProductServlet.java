@@ -20,8 +20,6 @@ public class EditProductServlet extends HttpServlet {
             System.out.println("got an id " + prodID);
 
             Product prodForEdit = new ProductDao().getProduct(prodID);
-//            new ProductDao().delete(prodFordeletion);
-//            List<Product> searchResults = new ProductDao().getAll();
             request.setAttribute("editproduct", prodForEdit);
             doGet(request, response);
         } catch (Exception e) {

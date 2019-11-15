@@ -22,7 +22,7 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="col-12 col-md-6"></div>
     <div class="col-6 col-md-6">
-        <a class="btn btn-light my-2" href="index.jsp">Home page</a>
+        <a class="btn btn-light my-2" href="./">Home page</a>
         <a class="btn btn-light my-2" href="./userdashboard">Manage Users</a>
         <a href="./dashboard" class="btn btn-light my-2">Back to product dashboard</a>
         <a class="btn btn-light my-2" href="">Log out</a>
