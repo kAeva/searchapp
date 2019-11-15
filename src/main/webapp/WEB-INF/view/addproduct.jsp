@@ -1,5 +1,5 @@
 <%@ page import="model.Product" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <title>Add a new product</title>
@@ -22,8 +22,8 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="col-12 col-md-6"></div>
     <div class="col-6 col-md-6">
-        <a class="btn btn-light my-2" href="./index.jsp">Home page</a>
-        <a class="btn btn-light my-2" href="./UsersPage.jsp">Manage Users</a>
+        <a class="btn btn-light my-2" href="index.jsp">Home page</a>
+        <a class="btn btn-light my-2" href="./userdashboard">Manage Users</a>
         <a href="./dashboard" class="btn btn-light my-2">Back to product dashboard</a>
         <a class="btn btn-light my-2" href="">Log out</a>
     </div>
@@ -57,7 +57,7 @@
             <label class="w-25 px-5">Price:
                 <input type="text" class="form-control mr-sm-5" name="prodprice">
             </label>
-            <label clas="w-25">Category:
+            <label class="w-25">Category:
                 <input type="text" class="form-control mr-sm-6" name="prodcategory">
             </label>
             <label class="w-25 px-3">Section number:

@@ -1,5 +1,6 @@
 package controller;
 
+import DAO.ProductDao;
 import model.*;
 
 import javax.servlet.RequestDispatcher;
@@ -26,7 +27,7 @@ public class SearchServlet extends HttpServlet {
             List<Product> searchResults = ProductDao.searchProduct(searchkey);
             request.setAttribute("prodsList", searchResults);
             request.setAttribute("searchkey", searchkey);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/search.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/view/search.jsp");
             dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

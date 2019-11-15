@@ -1,7 +1,7 @@
 package controller;
 
 import model.Product;
-import model.ProductDao;
+import DAO.ProductDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 @WebServlet(name = "EditProductServlet", urlPatterns = {"/editproduct"})
 public class EditProductServlet extends HttpServlet {
@@ -32,7 +31,7 @@ public class EditProductServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/editproduct.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/editproduct.jsp");
         dispatcher.forward(request, response);
     }
 }

@@ -1,7 +1,7 @@
 package controller;
 
 import model.Product;
-import model.ProductDao;
+import DAO.ProductDao;
 import model.SearchList;
 
 import javax.servlet.RequestDispatcher;
@@ -33,7 +33,7 @@ public class AddToListServlet extends HttpServlet {
             productsList.add(searchResult);
             searchList.add(searchResult);
             request.setAttribute("productsList", productsList);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("/SearchHolder.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/view/SearchHolder.jsp");
             dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();

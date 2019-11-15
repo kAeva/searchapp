@@ -1,6 +1,7 @@
-package model;
+package DAO;
 
 import controller.ConnectionFactory;
+import model.Product;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

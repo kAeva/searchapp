@@ -1,5 +1,5 @@
 <%@ page import="model.Product" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta charset="UTF-8">
@@ -50,9 +50,9 @@
             <label>Section</label>
             <input class="form-control mr-sm-5  col-md-12" name="prodsec" placeholder="<%=product.getSectionNum()%>"
                    aria-label="editsection">
-            </br>
-            </br>
-            </br>
+            <br>
+            <br>
+            <br>
             <button class="btn btn-outline-dark mx-auto" style="width: 200px; margin: 0 auto; display: block;"
                     type="submit">Update
             </button>

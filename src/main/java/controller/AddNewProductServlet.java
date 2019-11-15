@@ -1,7 +1,7 @@
 package controller;
 
 import model.Product;
-import model.ProductDao;
+import DAO.ProductDao;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -38,7 +38,7 @@ public class AddNewProductServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("./addproduct.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/addproduct.jsp");
         dispatcher.forward(request, response);
     }
 }

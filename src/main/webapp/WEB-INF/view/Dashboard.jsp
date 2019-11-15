@@ -1,7 +1,7 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
     <title>Management Dashboard</title>
@@ -24,9 +24,9 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="col-12 col-md-8"></div>
     <div class="col-6 col-md-4">
-        <a class="btn btn-light my-2" href="./index.jsp">Home page</a>
-        <a class="btn btn-light my-2" href="./UsersPage.jsp">Manage Users</a>
-        <a class="btn btn-light my-2" href="">Log out</a>
+        <a class="btn btn-light my-2" href="index.jsp">Home page</a>
+        <a class="btn btn-light my-2" href="#">Manage Users</a>
+        <a class="btn btn-light my-2" href="index.jsp">Log out</a>
     </div>
 </nav>
 
@@ -49,7 +49,7 @@
             <th scope="col">Description</th>
             <th scope="col">Sec.No</th>
             <th></th>
-            <th><a class="btn btn-warning btn-sm" href="./addproduct.jsp">Add</a></th>
+            <th><a class="btn btn-warning btn-sm" href="./addproductpage">Add</a></th>
 
         </tr>
         </thead>

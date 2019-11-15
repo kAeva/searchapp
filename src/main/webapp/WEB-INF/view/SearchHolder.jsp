@@ -1,7 +1,7 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
     <title>This is your list of products</title>
@@ -53,7 +53,7 @@
 
     <div class="col-12 col-md-8"></div>
     <div class="col-6 col-md-4">
-        <a class="btn btn-light my-2" href="./index.jsp">Home page</a>
+        <a class="btn btn-light my-2" href="index.jsp">Home page</a>
     </div>
 </nav>
 

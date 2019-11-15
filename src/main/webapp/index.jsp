@@ -42,6 +42,6 @@
     <div class="row">
 
     </div>
-<jsp:include page="Footer.jsp"/>
+<%--<jsp:include page="./view/Footer.jsp"/>--%>
 </body>
 </html>
