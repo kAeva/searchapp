@@ -74,11 +74,13 @@ public class UserDao implements Dao<User> {
 
 
         try (Connection connection = ConnectionFactory.getConnection()) {
-            PreparedStatement ps = connection.prepareStatement("UPDATE users SET name=?, email=?, password=?");
+            PreparedStatement ps = connection.prepareStatement("UPDATE users SET name=?, email=?, password=? WHERE id=?");
 
             ps.setString(1, user.getName());
             ps.setString(2, user.getEmail());
             ps.setString(3, user.getPassword());
+            ps.setInt(4, user.getId());
+
 
             ps.executeUpdate();
         } catch (SQLException ex) {

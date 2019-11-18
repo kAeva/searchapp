@@ -45,7 +45,7 @@
             <th scope="col">Name</th>
             <th scope="col">Email</th>
             <th></th>
-            <th><a class="btn btn-warning btn-sm" href="WEB-INF/view/adduserpage.jsp">Add</a></th>
+            <th><a class="btn btn-warning btn-sm" href="./adduserpage">Add</a></th>
 
         </tr>
         </thead>
@@ -69,7 +69,7 @@
                 <button class="btn btn-danger btn-sm" value="<%=user.getId()%>" name="userId">Remove</button>
             </form>
             </td>
-            <td><form method="post" action="./edituser"><button class="btn btn-success btn-sm" value="<%=user.getId()%>" name="prodId">Edit</button></form></td>
+            <td><form method="post" action="./edituser"><button class="btn btn-success btn-sm" value="<%=user.getId()%>" name="userId">Edit</button></form></td>
 
         </tr>
 

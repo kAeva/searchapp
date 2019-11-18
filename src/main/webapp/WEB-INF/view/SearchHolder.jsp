@@ -81,7 +81,7 @@
 
     <div class="row">
         <div class="col">
-            <img alt="product picture" src="img/placeholder.png" width="300px" height="300px"
+            <img alt="product picture" src="images/placeholder.png" width="300px" height="300px"
                  style="margin: 0 auto; display: block;">
         </div>
 

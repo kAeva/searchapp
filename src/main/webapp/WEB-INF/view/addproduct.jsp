@@ -33,7 +33,7 @@
     <h1 class="text-center">Add a new product</h1>
 </div>
 
-<div class="">
+<div>
     <%
         if (request.getAttribute("prodName") != null) {%>
     <div class="container-fluid alert alert-success" role="alert">
