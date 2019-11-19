@@ -16,7 +16,7 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="col-12 col-md-8"></div>
     <div class="col-6 col-md-4">
-        <button type="button" class="btn btn-light my-2">Admin panel</button>
+        <a href="/dashboard" type="button" class="btn btn-light my-2" >Back to dashboard</a>
     </div>
 </nav>
 <div>
