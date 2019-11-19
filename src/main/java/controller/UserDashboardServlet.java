@@ -1,7 +1,7 @@
 package controller;
 
-import DAO.ProductDao;
-import model.Product;
+import DAO.UserDao;
+import model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,25 +12,22 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-
-@WebServlet(name = "searchservlet", urlPatterns = {"/search"})
-public class SearchServlet extends HttpServlet {
+@WebServlet(name = "UserDashboardServlet", urlPatterns = {"/userdashboard"})
+public class UserDashboardServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String searchkey = request.getParameter("searchkey");
-        System.out.println("servler started with input parameter " + searchkey);
-
         try {
-            List<Product> searchResults = ProductDao.searchProduct(searchkey);
-            request.setAttribute("prodsList", searchResults);
-            request.setAttribute("searchkey", searchkey);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/view/search.jsp");
+            List<User> searchResults = new UserDao().getAll();
+            request.setAttribute("usersList", searchResults);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/view/userdashboard.jsp");
             dispatcher.forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
     }
 }

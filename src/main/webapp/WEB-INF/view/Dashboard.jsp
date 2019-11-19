@@ -1,7 +1,7 @@
 <%@ page import="model.Product" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.Iterator" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 <html>
 <head>
     <title>Management Dashboard</title>
@@ -24,9 +24,9 @@
 <nav class="navbar navbar-dark bg-dark">
     <div class="col-12 col-md-8"></div>
     <div class="col-6 col-md-4">
-        <a class="btn btn-light my-2" href="./index.jsp">Home page</a>
-        <a class="btn btn-light my-2" href="./UsersPage.jsp">Manage Users</a>
-        <a class="btn btn-light my-2" href="">Log out</a>
+        <a class="btn btn-light my-2" href="./">Home page</a>
+        <a class="btn btn-light my-2" href="./userdashboard">Manage Users</a>
+        <a class="btn btn-light my-2" href="./">Log out</a>
     </div>
 </nav>
 
@@ -36,7 +36,7 @@
 </div>
 
 
-<div class="container-fluid d-block mx-auto mt-5 col-sm-8" style="">
+<div class="container-fluid d-block mx-auto mt-5 col-sm-8">
     <table class="table">
 
         <thead class="thead-dark">
@@ -49,7 +49,7 @@
             <th scope="col">Description</th>
             <th scope="col">Sec.No</th>
             <th></th>
-            <th><a class="btn btn-warning btn-sm" href="#">Add more</a></th>
+            <th><a class="btn btn-warning btn-sm" href="./addproductpage">Add</a></th>
 
         </tr>
         </thead>
@@ -73,8 +73,11 @@
             <td><%=product.getCategory()%></td>
             <td><%=product.getDescription()%></td>
             <td><%=product.getSectionNum()%></td>
-            <td><a class="btn btn-danger btn-sm" href="#" value="<%=product.getId()%>" name="prodId">Remove</a></td>
-            <td><a class="btn btn-success btn-sm" href="#">Edit</a></td>
+            <td><form method="get" action="./deleteproduct">
+                <button class="btn btn-danger btn-sm" value="<%=product.getId()%>" name="prodId">Remove</button>
+            </form>
+            </td>
+            <td><form method="post" action="./editproduct"><button class="btn btn-success btn-sm" value="<%=product.getId()%>" name="prodId">Edit</button></form></td>
 
         </tr>
 

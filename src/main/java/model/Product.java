@@ -28,7 +28,7 @@ public class Product {
     }
 
     public Product() {
-
+//        setUuid();
     }
 
     public UUID getUuid() {

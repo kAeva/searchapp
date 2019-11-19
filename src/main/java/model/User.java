@@ -1,21 +1,12 @@
 package model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-
-
-@Entity
-@Table(name = "users")
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+
     private int id;
     private String name;
     private String email;
     private String password;
+
 
     public User(int id, String name, String email, String password) {
         this.password = password;
@@ -27,6 +18,10 @@ public class User {
     public User(String name, String email) {
         this.name = name;
         this.email = email;
+    }
+
+    public User() {
+
     }
 
     public void setEmail(String email) {
@@ -60,4 +55,8 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
+    public String toString() {
+        return getName() + " - " + getEmail();
+    }
+
 }

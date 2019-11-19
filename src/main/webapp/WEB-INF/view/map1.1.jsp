@@ -1,5 +1,4 @@
-
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
 
 <style>
     area {
@@ -9,6 +8,7 @@
     area:hover {
         border: 2px solid indianred;
     }
+
 </style>
 
 <div class="container">
@@ -103,4 +103,5 @@ position: absolute; left: 0px; top: 0px; padding: 0px; border: 0px;">
         <area target="" alt="GH" title="GH" href="" coords="175,361,273,574" shape="rect">
 
     </map>
+</div>
 </div>
